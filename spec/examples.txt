@@ -1,3 +1,4 @@
-example_id                                    | status | run_time        |
---------------------------------------------- | ------ | --------------- |
-./spec/services/generate_csv_job_spec.rb[1:1] | passed | 0.31483 seconds |
+example_id                                | status | run_time        |
+----------------------------------------- | ------ | --------------- |
+./spec/features/order_spec.rb[1:1:1]      | failed | 2.54 seconds    |
+./spec/jobs/generate_csv_job_spec.rb[1:1] | passed | 0.48582 seconds |

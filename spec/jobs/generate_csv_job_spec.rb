@@ -5,7 +5,7 @@ RSpec.describe GenerateCSVJob, sidekiq: :inline do
   let!(:timestamp) { Time.zone.now.to_i.to_s }
 
   before do
-    GenerateCSVJob.perform_async(timestamp, [order.id])
+    GenerateCSVJob.perform_async(timestamp, order.id)
   end
 
   it "should create the CSV" do
