@@ -33,8 +33,9 @@ group :test do
   gem 'faker', '~> 1.6', '>= 1.6.1'
   gem 'rspec-rails', '~> 3.4'
   gem 'capybara', '~> 2.5'
-  gem 'poltergeist', '~> 1.8', '>= 1.8.1'
+  gem "poltergeist"
   gem 'factory_girl_rails', '~> 4.5'
+  gem 'database_cleaner'
 end
 
 group :development do

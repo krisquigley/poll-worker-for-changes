@@ -13,5 +13,5 @@
                 city: "Leeds",
                 county: "West Yorkshire",
                 postcode: "LS1 1AA",
-                email: "john@example.come")
+                email: "john@example.com")
 end

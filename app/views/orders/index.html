@@ -1,0 +1,33 @@
+<%= form_tag(csv_exports_path, remote: true) do %>
+  <table>
+    <thead>
+      <tr>
+        <th><%= check_box_tag :select_all %></th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>County</th>
+        <th>Postcode</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= check_box_tag 'order_ids[]', order.id %></td>
+        <td><%= order.name %></td>
+        <td><%= order.address %></td>
+        <td><%= order.city %></td>
+        <td><%= order.county %></td>
+        <td><%= order.postcode %></td>
+        <td><%= order.email %></td>
+      </tr>
+    <% end %>
+    </tbody>    
+    <tfoot>
+      <tr>
+        <td colspan="7"><%= submit_tag 'Generate CSV' %></td>
+      </tr>
+    </tfoot>
+  </table>
+<% end %>
