@@ -23,6 +23,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # background processing
 gem 'sidekiq', '~> 4.0', '>= 4.0.1'
+gem 'redis'
+
+# web server
+gem 'puma'
+
+# boot up
+gem 'foreman'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

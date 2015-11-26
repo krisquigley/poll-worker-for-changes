@@ -6,7 +6,7 @@ class GenerateCSVJob
   def perform(timestamp, order_ids)
     orders = Order.where(id: order_ids)
 
-    file = Tempfile.new(timestamp)
+    file = Tempfile.new(timestamp.to_s)
 
     CSV.open(file, "wb") do |csv|
       csv << ["Name", "Address", "City", "County", "Postcode", "Email"]

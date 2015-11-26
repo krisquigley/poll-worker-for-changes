@@ -1,4 +1,4 @@
-<%= form_tag(csv_exports_path, remote: true) do %>
+<%= form_tag(csv_exports_path, remote: true, data: { attribute: "generate_csv_form" } ) do %>
   <table>
     <thead>
       <tr>
@@ -14,7 +14,7 @@
     <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= check_box_tag 'order_ids[]', order.id %></td>
+        <td><%= check_box_tag "order_ids[]", order.id %></td>
         <td><%= order.name %></td>
         <td><%= order.address %></td>
         <td><%= order.city %></td>
@@ -26,8 +26,16 @@
     </tbody>    
     <tfoot>
       <tr>
-        <td colspan="7"><%= submit_tag 'Generate CSV' %></td>
+        <td colspan="7"><%= button_tag "Generate CSV", data: { behavior: "generate-csv"} %></td>
       </tr>
     </tfoot>
   </table>
 <% end %>
+
+<div data-behavior="generating_csv" class="csv__generating-csv">
+  <p>Generating CSV...</p>
+</div>
+
+<div data-behavior="download_csv" class="csv__generating-csv">
+  <a data-attribute="download_csv_link">Download CSV</a>
+</div>
