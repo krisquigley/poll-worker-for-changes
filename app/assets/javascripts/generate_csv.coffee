@@ -1,6 +1,7 @@
 (($) ->
   $ ->
-    $('input[data-behavior="generate_csv"]').click -> 
+    $('button[data-behavior="generate_csv"]').click -> 
+      $('button[data-behavior="generate_csv"]').hide()
       $('div[data-behavior="generating_csv"]').show()
 
     $('form[data-attribute="generate_csv_form"]').on 'ajax:success', (e, data, xhr) ->

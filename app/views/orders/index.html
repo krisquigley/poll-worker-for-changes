@@ -1,41 +1,45 @@
-<%= form_tag(csv_exports_path, remote: true, data: { attribute: "generate_csv_form" } ) do %>
-  <table>
-    <thead>
-      <tr>
-        <th><%= check_box_tag :select_all %></th>
-        <th>Name</th>
-        <th>Address</th>
-        <th>City</th>
-        <th>County</th>
-        <th>Postcode</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-    <% @orders.each do |order| %>
-      <tr>
-        <td><%= check_box_tag "order_ids[]", order.id %></td>
-        <td><%= order.name %></td>
-        <td><%= order.address %></td>
-        <td><%= order.city %></td>
-        <td><%= order.county %></td>
-        <td><%= order.postcode %></td>
-        <td><%= order.email %></td>
-      </tr>
+<div class="row">
+  <div class="col-sm-12">
+    <%= form_tag(csv_exports_path, remote: true, data: { attribute: "generate_csv_form" } ) do %>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th><%= check_box_tag :select_all %></th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>County</th>
+            <th>Postcode</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td><%= check_box_tag "order_ids[]", order.id %></td>
+            <td><%= order.name %></td>
+            <td><%= order.address %></td>
+            <td><%= order.city %></td>
+            <td><%= order.county %></td>
+            <td><%= order.postcode %></td>
+            <td><%= order.email %></td>
+          </tr>
+        <% end %>
+        </tbody>    
+        <tfoot>
+          <tr>
+            <td colspan="7"><%= button_tag "Generate CSV", data: { behavior: "generate_csv"}, class: "btn btn-default" %></td>
+          </tr>
+        </tfoot>
+      </table>
     <% end %>
-    </tbody>    
-    <tfoot>
-      <tr>
-        <td colspan="7"><%= button_tag "Generate CSV", data: { behavior: "generate-csv"} %></td>
-      </tr>
-    </tfoot>
-  </table>
-<% end %>
 
-<div data-behavior="generating_csv" class="csv__generating-csv">
-  <p>Generating CSV...</p>
-</div>
+    <div data-behavior="generating_csv" class="csv__generating-csv">
+      <p>Generating CSV...</p>
+    </div>
 
-<div data-behavior="download_csv" class="csv__generating-csv">
-  <a data-attribute="download_csv_link">Download CSV</a>
+    <div data-behavior="download_csv" class="csv__generating-csv">
+      <a data-attribute="download_csv_link" class="btn btn-success">Download CSV</a>
+    </div>
+  </div>
 </div>
