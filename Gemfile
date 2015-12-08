@@ -37,8 +37,10 @@ group :development, :test do
   gem 'byebug'
 end
 
+# Spruce up our test data
+gem 'faker', '~> 1.6', '>= 1.6.1'
+
 group :test do
-  gem 'faker', '~> 1.6', '>= 1.6.1'
   gem 'rspec-rails', '~> 3.4'
   gem 'capybara', '~> 2.5'
   gem "poltergeist"

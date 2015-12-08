@@ -8,10 +8,10 @@
 
 
 10.times do
-  Order.create!(name: "John Doe", 
-                address: "12 Random Street",
-                city: "Leeds",
-                county: "West Yorkshire",
-                postcode: "LS1 1AA",
-                email: "john@example.com")
+  Order.create!(name: Faker::Name.name,
+                address: Faker::Address.street_address,
+                city: Faker::Address.city,
+                county: Faker::Address.state,
+                postcode: Faker::Address.zip,
+                email: Faker::Internet.email)
 end
